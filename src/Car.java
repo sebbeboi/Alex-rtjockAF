@@ -1,6 +1,6 @@
 import javafx.scene.paint.Color;
 
-public class Car {
+public abstract class Car implements Movable{
 
 	private final static double trimFactor = 1.25;
 

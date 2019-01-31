@@ -1,6 +1,6 @@
 import javafx.scene.paint.Color;
 
-public class Saab95 extends Car {
+public abstract class Saab95 extends Car {
 	
 	private Saab95() {
 		super(Color.BLACK,"Saab95",125);
