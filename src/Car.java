@@ -3,6 +3,9 @@ import javafx.scene.paint.Color;
 public abstract class Car implements Movable{
 
 	private final static double trimFactor = 1.25;
+	private double xPos;
+	private double yPos;
+	private int direction;
 
 	private double enginePower; // Engine power of the car
 	private double currentSpeed; // The current speed of the car
@@ -11,24 +14,36 @@ public abstract class Car implements Movable{
 
 	private boolean turboOn;
 	
+	public void move() {
+		
+	}
+	
+	public void turnRight() {
+		
+	}
+	
+	public void turnLeft() {
+		
+	}
+	
 	public Car(Color c, String m, double ep) {
 		color = c;
 		modelName = m;
 		enginePower = ep;
 	}
 	
-	public double speedFactor() {
+	protected double speedFactor() {
 		double turbo = 1;
 		if (turboOn)
 			turbo = 1.3;
 		return getEnginePower() * 0.01 * turbo;
 	}
 	
-	public double getEnginePower() {
+	protected double getEnginePower() {
 		return enginePower;
 	}
 
-	public double getCurrentSpeed() {
+	protected double getCurrentSpeed() {
 		return currentSpeed;
 	}
 
@@ -52,11 +67,11 @@ public abstract class Car implements Movable{
 		turboOn = false;
 	}
 
-	public void incrementSpeed(double amount) {
+	private void incrementSpeed(double amount) {
 		currentSpeed = getCurrentSpeed() + speedFactor() * amount;
 	}
 
-	public void decrementSpeed(double amount) {
+	private void decrementSpeed(double amount) {
 		currentSpeed = getCurrentSpeed() - speedFactor() * amount;
 	}
 
