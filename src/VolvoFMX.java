@@ -1,16 +1,14 @@
-import java.util.ArrayList;
-
 import javafx.scene.paint.Color;
 
 public class VolvoFMX extends Car{
 	
-	ArrayList<Car> cars = new ArrayList<Car>();
 	private boolean rampNere;
-	private int maxLast = 2;
 	private int maxBilBredd = 200;
 	private int maxBilLängd = 500;
 	private int nuvBilBredd;
 	private int nuvBilLängd;
+	
+	Lastare lastare = new Lastare(2);
 	
 	/**
 	 * Konstruktor som ger transportbilen svart färg, modellnamn VolvoFMX och enginePower 520.
@@ -27,6 +25,8 @@ public class VolvoFMX extends Car{
 	protected double speedFactor() {
 		return getEnginePower() * 0.001;
 	}
+	
+	
 	
 	/**
 	 * Höjer rampen på transportbilen om den inte är i fart.
@@ -52,22 +52,28 @@ public class VolvoFMX extends Car{
 		}
 	}
 	
-	public void lastaPå(Car c) {
-		if (cars.size() >= maxLast) {
-			return;
+	public void rampKollPå(Car c) {
+		if (rampNere == true && nuvBilBredd <= maxBilBredd || nuvBilLängd <= maxBilLängd) {
+			lastare.lastaPå(c);
 		}
-		else if (rampNere == true && (nuvBilBredd > maxBilBredd || nuvBilLängd > maxBilLängd)){
-			cars.add(c);
+		else {
+			return;
 		}
 	}
 	
-	public void lastaAv() {
-		if (cars.size() <= 0) {
+	public void rampKollAv() {
+		if (rampNere == true && nuvBilBredd <= maxBilBredd || nuvBilLängd <= maxBilLängd) {
+			lastare.lastaAvSista();
+		}
+		else {
 			return;
 		}
-		else if (rampNere == true) {
-			cars.remove(cars.size()-1);
-		}
+	}
+	
+	@Override
+	public void move() {
+		super.move();
+		lastare.updateAllPositions(this);
 	}
 }
 
