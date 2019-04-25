@@ -1,3 +1,4 @@
+package model;
 import java.util.ArrayList;
 
 public class Lastare {
@@ -43,4 +44,12 @@ public class Lastare {
 			vehicle.setY(v.getY());
 		}
 	}
+
+	/*
+	public void isClose(Car c) {
+		double distance = 10;
+		double deltaX = Car.getX() - c.getX();
+		double deltaY = Car.getY() - c.getY();
+	}
+	*/
 }

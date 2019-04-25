@@ -1,6 +1,7 @@
+package model;
 import javafx.scene.paint.Color;
 
-public abstract class Saab95 extends Car {
+public  class Saab95 extends Car {
 	
 	private boolean turboOn;
 	

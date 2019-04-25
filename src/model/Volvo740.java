@@ -1,6 +1,7 @@
+package model;
 import javafx.scene.paint.Color;
 
-public abstract class Volvo740 extends Car {
+public  class Volvo740 extends Car {
 	
 	public final static double trimFactor = 1.25;
 	

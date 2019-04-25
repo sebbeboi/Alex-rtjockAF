@@ -1,3 +1,4 @@
+package model;
 import javafx.scene.paint.Color;
 
 public abstract class Vehicle implements Movable{
@@ -38,7 +39,7 @@ public abstract class Vehicle implements Movable{
 	}
 	
 	public void turnLeft() {
-		direction = (direction+3)%4;
+		direction = (direction-3)%4;
 		
 	}
 	
@@ -102,7 +103,7 @@ public abstract class Vehicle implements Movable{
 	}
 
 	public void gas(double amount) {
-		if(amount > 0 && amount < 1) {
+		if(amount > 0 && amount <= 1) {
 			incrementSpeed(amount);
 		}
 		else return;
@@ -131,4 +132,7 @@ public abstract class Vehicle implements Movable{
 		yPos = posY;
 	}
 	
+	public String getModelName() {
+		return modelName;
+	}
 }
